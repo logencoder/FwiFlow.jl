@@ -185,7 +185,7 @@ function compute_misfit(fwi::FWI,
         shot_ids = collect(1:length(fwi.ind_src_x))
     end
     shot_ids = constant(shot_ids, dtype=Int32) - 1
-    misfit = fwi_op(λ_masked, μ_masked, ρ_masked, stf_array, gpu_id, shot_ids, joinpath(fwi.WORKSPACE, fwi.para_fname))
+    misfit, grad = fwi_op(λ_masked, μ_masked, ρ_masked, stf_array, gpu_id, shot_ids, joinpath(fwi.WORKSPACE, fwi.para_fname))
 end
 
 
