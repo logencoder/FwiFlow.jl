@@ -12,7 +12,7 @@ if Sys.islinux()
         misfit = libFwiOp.fwi_op(λ,μ,ρ,stf,gpu_id,shot_ids,para_fname)
         def grad(dy):
             return libFwiOp.fwi_op_grad(dy, tf.constant(1.0,dtype=tf.float64),λ,μ,ρ,stf,gpu_id,shot_ids,para_fname)
-        return misfit, grad
+        return misfit
     def fwi_obs_op(λ,μ,ρ,stf,gpu_id,shot_ids,para_fname):
         misfit = libFwiOp.fwi_obs_op(λ,μ,ρ,stf,gpu_id,shot_ids,para_fname)
         return misfit
